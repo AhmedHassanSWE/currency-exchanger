@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ExchangeComponent } from './components/exchange/exchange.component';
+import { PopularCurrenciesComponent } from './components/popular-currencies/popular-currencies.component';
+import { CurrencyCardComponent } from './components/currency-card/currency-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     PageTitleComponent,
-    ExchangeComponent
+    ExchangeComponent,
+    PopularCurrenciesComponent,
+    CurrencyCardComponent
   ],
   imports: [
     BrowserModule,

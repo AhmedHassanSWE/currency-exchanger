@@ -1,0 +1,12 @@
+.currency-card {
+    border: 1px solid #555;
+    border-radius: 12px;
+    width: 25vw;
+    height: 50px;
+    margin: 5;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
