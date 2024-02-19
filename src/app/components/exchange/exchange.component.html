@@ -1,21 +1,21 @@
 <div class="container">
   <div class="input-container">
-    <input type="number" placeholder="Amount" value="1" />
-    <p>Exchange Rate</p>
+    <input type="number" placeholder="Amount" [(ngModel)]="amount" />
+    <p>Exchange Rate: {{ exchangeRate }}</p>
   </div>
   <div class="selects-container">
     <div class="selects-wrapper">
-      <select>
-        <option>EURO</option>
+      <select [(ngModel)]="fromCurrency" (ngModelChange)="onChange()">
+        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
       </select>
-      <span>Exchange icon</span>
-      <select>
-        <option>USD</option>
+      <span (click)="swapCurrencies()">Exchange icon</span> <!-- Add click event for swapping -->
+      <select [(ngModel)]="toCurrency" (ngModelChange)="onChange()">
+        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
       </select>
     </div>
-    <button>Convert</button>
+    <button (click)="onConvert()">Convert</button>
     <div class="results-container">
-      <span>Results</span>
+      <span>{{ result }}</span>
       <button>More Details</button>
     </div>
   </div>
