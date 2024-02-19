@@ -8,6 +8,8 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { ExchangeComponent } from './components/exchange/exchange.component';
 import { PopularCurrenciesComponent } from './components/popular-currencies/popular-currencies.component';
 import { CurrencyCardComponent } from './components/currency-card/currency-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CurrencyCardComponent } from './components/currency-card/currency-card.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
