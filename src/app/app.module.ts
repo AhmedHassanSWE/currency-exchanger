@@ -10,6 +10,14 @@ import { PopularCurrenciesComponent } from './components/popular-currencies/popu
 import { CurrencyCardComponent } from './components/currency-card/currency-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { HistoricalComponent } from './components/historical/historical.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent }, 
+  { path: 'historical', component: HistoricalComponent },
+];
 
 @NgModule({
   declarations: [
@@ -18,13 +26,16 @@ import { FormsModule } from '@angular/forms';
     PageTitleComponent,
     ExchangeComponent,
     PopularCurrenciesComponent,
-    CurrencyCardComponent
+    CurrencyCardComponent,
+    HomeComponent,
+    HistoricalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
