@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { HistoricalComponent } from './components/historical/historical.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HistoricalChartComponent } from './components/historical-chart/historical-chart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent }, 
@@ -28,14 +30,16 @@ const routes: Routes = [
     PopularCurrenciesComponent,
     CurrencyCardComponent,
     HomeComponent,
-    HistoricalComponent
+    HistoricalComponent,
+    HistoricalChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
