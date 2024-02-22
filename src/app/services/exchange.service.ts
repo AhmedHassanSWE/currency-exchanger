@@ -1,25 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ExchangeRateResponse } from 'src/app/interfaces/Interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExchangeService {
-  private apiUrl = 'http://data.fixer.io/api/latest?access_key=100fa78ed2620312cda38a459eae2291';
-  private rates: any = {};
+export class ExchangeRateService {
 
   constructor(private http: HttpClient) { }
 
-  getExchangeRates(): Observable<any> {
-    return this.http.get(this.apiUrl);
-  }
-
-  setRates(rates: any) {
-    this.rates = rates;
-  }
-
-  getRate(currency: string): number | undefined {
-    return this.rates[currency];
+  fetchExchangeRate(fromCurrency: string, toCurrency: string): Observable<ExchangeRateResponse> {
+    const apiUrl = `https://api.fastforex.io/fetch-one?api_key=67993785f2-c9f402e1dc-s96j9e&from=${fromCurrency}&to=${toCurrency}`;
+    return this.http.get<ExchangeRateResponse>(apiUrl);
   }
 }
