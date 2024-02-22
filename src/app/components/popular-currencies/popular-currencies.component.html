@@ -1,14 +1,8 @@
 <div>
-    <h3>Popular Currencies Details</h3>
-    <div class="popular-currencies">
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
-        <app-currency-card></app-currency-card>
+  <h3>Popular Currencies Details</h3>
+  <div class="popular-currencies">
+      <div class="currency-card" *ngFor="let pair of popularCurrencyPairs" (click)="navigateToHistorical(pair.split('-')[0], pair.split('-')[1])">
+          <h4>{{ pair }}</h4>
       </div>
+  </div>
 </div>

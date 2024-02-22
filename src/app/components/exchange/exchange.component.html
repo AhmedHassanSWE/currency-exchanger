@@ -5,18 +5,19 @@
   </div>
   <div class="selects-container">
     <div class="selects-wrapper">
-      <select [(ngModel)]="fromCurrency" (ngModelChange)="onChange()">
-        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+      <select [(ngModel)]="fromCurrency" (ngModelChange)="onChange()" [disabled]="currentRoute.includes('/historical')">
+        <option *ngFor="let currency of popularCurrencies" [value]="currency">{{ currency }}</option>
       </select>
-      <span (click)="swapCurrencies()">Exchange icon</span> <!-- Add click event for swapping -->
+      <span (click)="swapCurrencies()">Exchange icon</span>
       <select [(ngModel)]="toCurrency" (ngModelChange)="onChange()">
-        <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        <option *ngFor="let currency of popularCurrencies" [value]="currency">{{ currency }}</option>
       </select>
     </div>
     <button (click)="onConvert()">Convert</button>
     <div class="results-container">
       <span>{{ result }}</span>
-      <button>More Details</button>
+      <button *ngIf="!currentRoute.includes('historical')" (click)="showHistoricalDetails()">More Details</button>
+      <button *ngIf="currentRoute.includes('historical')" (click)="goBack()">Go Back</button>
     </div>
   </div>
 </div>
